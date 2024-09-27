@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand';
+  background-color: #FBFBFB;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  color: #141D49;
+}

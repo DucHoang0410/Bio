@@ -1,0 +1,11 @@
+.ant-modal-content {
+  border-radius: 15px;
+}
+
+.ant-modal-content button {
+  border-radius: 8px;
+}
+
+a {
+  text-decoration: none;
+}

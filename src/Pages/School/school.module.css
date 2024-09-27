@@ -1,0 +1,11 @@
+.card_content_label {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.list_card {
+  min-width: 400px;
+  max-width: 600px;
+}
