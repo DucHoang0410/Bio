@@ -28,7 +28,7 @@ function App() {
               path={e.path}
               element={
                 <AppProvider>
-                  <MainLayout navKey={e.navKey} subNavKey={e.subNavKey}>
+                  <MainLayout navKey={e.navKey} >
                     {e.element}
                   </MainLayout>
                 </AppProvider>

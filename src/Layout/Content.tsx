@@ -34,15 +34,10 @@ interface NavigationTreeProps {
 }
 
 const navList = {
-  al: { name: 'Danh sách tài khoản', path: '/account-list' },
   as: { name: 'Thêm trường', path: '/add-school' },
   sl: { name: 'Danh sách trường', path: '/school-list' },
 };
 
-const subNavList = {
-  ai: { name: 'Chi tiết tài khoản', path: '/account-list/account-info' },
-  si: { name: 'Chi tiết trường', path: '/school-list/school-info' },
-};
 
 const NavigationTree: React.FC<NavigationTreeProps> = ({
   navKey,
@@ -71,16 +66,6 @@ const NavigationTree: React.FC<NavigationTreeProps> = ({
           >
             {navList[navKey as keyof typeof navList].name}
           </Link>
-          &nbsp;&nbsp;
-        </>
-      )}
-      {subNavKey && (
-        <>
-          <span>{'>>'}</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div className={`${styles.link} ${styles.current_nav}`}>
-            {subNavList[subNavKey as keyof typeof subNavList].name}
-          </div>
           &nbsp;&nbsp;
         </>
       )}

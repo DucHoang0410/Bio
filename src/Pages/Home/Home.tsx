@@ -20,14 +20,12 @@ interface GeneralInfoDataType {
   numberOfSchools: number;
   numberOfTeachers: number;
   numberOfParents: number;
-  numberOfStudents: number;
 }
 
 const generalInfo: GeneralInfoDataType = {
-  numberOfSchools: 2,
-  numberOfTeachers: 30,
-  numberOfParents: 2400,
-  numberOfStudents: 1200,
+  numberOfSchools: 20,
+  numberOfTeachers: 200,
+  numberOfParents: 1500,
 };
 
 export const Home = () => {
@@ -36,7 +34,7 @@ export const Home = () => {
       <Grid item>
         <Link style={{ textDecoration: 'none' }} to='/school-list'>
           <Card sx={card_sx}>
-            <p className={styles.card_title}>Trường</p>
+            <p className={styles.card_title}>Thí nghiệm</p>
             <p className={styles.card_number}>
               {generalInfo?.numberOfSchools ?? (
                 <CircularProgress sx={circular_progress_sx} />
@@ -51,7 +49,7 @@ export const Home = () => {
       <Grid item>
         <Link style={{ textDecoration: 'none' }} to=''>
           <Card sx={card_sx}>
-            <p className={styles.card_title}>Giáo viên</p>
+            <p className={styles.card_title}>Số lần đo</p>
             <p className={styles.card_number}>
               {generalInfo?.numberOfTeachers ?? (
                 <CircularProgress sx={circular_progress_sx} />
@@ -66,24 +64,9 @@ export const Home = () => {
       <Grid item>
         <Link style={{ textDecoration: 'none' }} to='/'>
           <Card sx={card_sx}>
-            <p className={styles.card_title}>Phụ huynh</p>
+            <p className={styles.card_title}>Ảnh mẫu</p>
             <p className={styles.card_number}>
               {generalInfo?.numberOfParents ?? (
-                <CircularProgress sx={circular_progress_sx} />
-              )}
-            </p>
-            <Grid container justifyContent='flex-end'>
-              <PeopleAltOutlinedIcon />
-            </Grid>
-          </Card>
-        </Link>
-      </Grid>
-      <Grid item>
-        <Link style={{ textDecoration: 'none' }} to='/'>
-          <Card sx={card_sx}>
-            <p className={styles.card_title}>Học sinh</p>
-            <p className={styles.card_number}>
-              {generalInfo?.numberOfStudents ?? (
                 <CircularProgress sx={circular_progress_sx} />
               )}
             </p>

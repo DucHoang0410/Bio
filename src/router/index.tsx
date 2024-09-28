@@ -1,6 +1,4 @@
 import {
-  AccountInfo,
-  AccountList,
   CreateSchool,
   Home,
   SchoolInfo,
@@ -12,19 +10,6 @@ export const ADMIN_ROUTER = [
     key: 'home',
     path: '/',
     element: <Home />,
-  },
-  {
-    key: 'account-list',
-    path: '/account-list',
-    navKey: 'al',
-    element: <AccountList />,
-  },
-  {
-    key: 'account-info',
-    path: '/account-list/account-info/:accountId',
-    navKey: 'al',
-    subNavKey: 'ai',
-    element: <AccountInfo />,
   },
   {
     key: 'add-school',

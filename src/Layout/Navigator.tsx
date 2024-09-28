@@ -17,30 +17,20 @@ import { Link, useLocation } from 'react-router-dom';
 
 const categories = [
   {
-    id: 'Quản trị trường',
+    id: 'Thí nghiệm',
     children: [
       {
-        id: 'Danh sách trường',
+        id: 'Danh sách thí nghiệm',
         icon: <DomainOutlinedIcon />,
         path: 'school-list',
       },
       {
-        id: 'Thêm trường',
+        id: 'Thêm thí nghiệm',
         icon: <AddCircleOutlineOutlinedIcon />,
         path: 'add-school',
       },
     ],
-  },
-  {
-    id: 'Quản trị tài khoản',
-    children: [
-      {
-        id: 'Danh sách tài khoản',
-        icon: <PersonAddAltOutlinedIcon />,
-        path: 'account-list',
-      },
-    ],
-  },
+  }
 ];
 
 const item = {
