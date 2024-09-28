@@ -82,7 +82,7 @@ export default function Navigator(props: DrawerProps) {
           <ListItemIcon sx={{ marginRight: '10px' }}>
             <img className={styles.img} src='/Images/logo.png' alt='' />
           </ListItemIcon>
-          Vschool
+          Biotech Lab
         </ListItem>
         <Link to={'/'} className={styles.link}>
           <ListItem sx={{ ...item, ...itemCategory }}>

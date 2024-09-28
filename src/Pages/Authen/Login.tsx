@@ -8,10 +8,10 @@ import styles from './authen-page.module.css';
 import { ResponseDataType, postRequest } from 'api';
 
 interface LoginDataType {
-  userId: number;
-  username: string;
+  id: string;
+  email: string;
   token: string;
-  refresh_token: string;
+  role: string;
 }
 
 export const LoginPage = () => {
@@ -30,12 +30,12 @@ export const LoginPage = () => {
     reqBody.append('password', value.password);
 
     const response: ResponseDataType<LoginDataType> = await postRequest(
-      '/cms/auth/login',
+      '/user/login',
       {
         email: value.email,
         password: value.password,
       },
-      'form-data'
+      'json'
     );
 
     console.log(response);
@@ -44,10 +44,10 @@ export const LoginPage = () => {
       console.log('error', response);
       toast.error(response?.msg);
     } else if (response.info) {
-      localStorage.setItem('email', response.info.username);
-      localStorage.setItem('uid', response.info.userId.toString());
+      localStorage.setItem('email', response.info.email);
+      localStorage.setItem('uid', response.info.id);
       localStorage.setItem('accessToken', response.info.token);
-      localStorage.setItem('refreshToken', response.info.refresh_token);
+      localStorage.setItem('role', response.info.role);
       window.location.href = '/';
     }
 
@@ -59,7 +59,7 @@ export const LoginPage = () => {
       <div className={styles.login_page_background} />
       <div className={styles.authen_wrapper}>
         <img className={styles.logo} src='/Images/logo.png' alt='' />
-        <div className={styles.name}>Vschool</div>
+        <div className={styles.name}>Biotech Lab</div>
         <Form form={form} onFinish={(value) => Login(value)}>
           <div className={`${styles.form} authen-form`}>
             <Form.Item

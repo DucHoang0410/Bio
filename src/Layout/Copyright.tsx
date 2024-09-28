@@ -6,7 +6,7 @@ export function Copyright() {
     <Typography variant='body2' color='text.secondary' align='center'>
       {'Copyright © '}
       <Link color='inherit' target='_blank' href='https://adotsystem.com'>
-        Vschool
+       Biotech Lab
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
