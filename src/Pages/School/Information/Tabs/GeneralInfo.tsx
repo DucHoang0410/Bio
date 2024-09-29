@@ -3,9 +3,7 @@ import { Card, Form, Modal } from 'antd';
 import styles from '../../school.module.css';
 import {
   SchoolSubmitFormDataType,
-  ListOptionType,
   SchoolForm,
-  AddressResDataType,
 } from '../../Components';
 import { useEffect, useState } from 'react';
 import { ResponseDataType, getRequest, patchRequest } from 'api';
@@ -15,23 +13,13 @@ import { toast } from 'react-toastify';
 interface SchoolResDataType {
   schoolId: number;
   name: string;
-  msthue: string;
-  provinceId: number;
-  districtId: number;
-  wardId: number;
-  tinhthanh: string;
-  quanhuyen: string;
-  xaphuong: string;
-  address: string;
-  schoolType: number;
+  created_time: string;
+
 }
 
 export const SchoolGeneralInfo = () => {
   const { schoolId } = useParams();
   const [form] = Form.useForm();
-  const [provinceList, setProvinceList] = useState<ListOptionType[]>([]);
-  const [districtList, setDistrictList] = useState<ListOptionType[]>([]);
-  const [wardList, setWardList] = useState<ListOptionType[]>([]);
 
   useEffect(() => {
     const getSchoolInfo = async () => {
@@ -46,53 +34,9 @@ export const SchoolGeneralInfo = () => {
 
       form.setFieldsValue({
         name: schoolRes.info?.name,
-        mst: schoolRes.info?.msthue,
-        address: schoolRes.info?.address,
-        schoolType: schoolRes.info?.schoolType,
-        province: schoolRes.info?.provinceId,
-        district: schoolRes.info?.districtId,
-        ward: schoolRes.info?.wardId,
+        created_time: schoolRes.info?.created_time, 
       });
-
-      const provinceRes: ResponseDataType<AddressResDataType[]> =
-        await getRequest('/province');
-      if (provinceRes.code === 200) {
-        setProvinceList(
-          provinceRes.info?.map((province) => ({
-            value: province.id,
-            label: province.name,
-          })) || []
-        );
-      } else {
-        toast.error(provinceRes.msg);
-      }
-
-      const districtRes: ResponseDataType<AddressResDataType[]> =
-        await getRequest(`/district?provinceId=${schoolRes.info?.provinceId}`);
-      if (districtRes.code === 200) {
-        setDistrictList(
-          districtRes.info?.map((province) => ({
-            value: province.id,
-            label: province.name,
-          })) || []
-        );
-      } else {
-        toast.error(districtRes.msg);
-      }
-
-      const wardRes: ResponseDataType<AddressResDataType[]> = await getRequest(
-        `/ward?districtId=${schoolRes.info?.districtId}`
-      );
-      if (wardRes.code === 200) {
-        setWardList(
-          wardRes.info?.map((province) => ({
-            value: province.id,
-            label: province.name,
-          })) || []
-        );
-      } else {
-        toast.error(wardRes.msg);
-      }
+  
     };
 
     getSchoolInfo();
@@ -108,19 +52,7 @@ export const SchoolGeneralInfo = () => {
           {
             schoolId: parseInt(schoolId as string),
             name: value.name,
-            msthue: value.mst,
-            provinceId: value.province,
-            tinhthanh: provinceList.find(
-              (province) => province.value === value.province
-            )?.label,
-            districtId: value.district,
-            quanhuyen: districtList.find(
-              (district) => district.value === value.district
-            )?.label,
-            wardId: value.ward,
-            xaphuong: wardList.find((ward) => ward.value === value.ward)?.label,
-            address: value.address,
-            schoolType: value.schoolType,
+            created_time: value.created_time
           }
         );
 
@@ -143,11 +75,6 @@ export const SchoolGeneralInfo = () => {
             submitBtnLabel='Cập nhật'
             form={form}
             handleSubmitForm={handleCreateSchool}
-            provinceList={provinceList}
-            districtList={districtList}
-            wardList={wardList}
-            setDistrictList={setDistrictList}
-            setWardList={setWardList}
           />
         </Card>
       </Grid>
