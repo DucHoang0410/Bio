@@ -6,14 +6,15 @@ import { Table } from 'antd';
 
 export const SchoolList = () => {
   const [schoolList, setSchoolList] = useState<SchoolDataType[]>([]);
+
   useEffect(() => {
     const getCustomerList = async () => {
-      const response: ResponseDataType<SchoolListDataType> = await getRequest(
-        '/cms/school?page=1&perPage=20'
-      );
+      const response: ResponseDataType<SchoolListDataType> = await getRequest('/test');
+      console.log(response);
 
       if (response.code === 200) {
-        setSchoolList(response.info?.list || []);
+        // Ensure response.info is always an array
+        setSchoolList(Array.isArray(response.info) ? response.info : []); 
       } else {
         toast.error(response.msg);
       }
@@ -24,7 +25,7 @@ export const SchoolList = () => {
 
   return (
     <div>
-      <Table columns={columns} dataSource={schoolList} rowKey='schoolId' />
+      <Table columns={columns} dataSource={schoolList} rowKey='_id' />
     </div>
   );
 };

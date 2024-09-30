@@ -41,10 +41,10 @@ export const PATH_INFO = {
     // tabList: ['Thông tin chung', 'Danh sách tổ chức'],
   },
   '/add-school': {
-    title: 'Thêm trường',
+    title: 'Thêm thí nghiệm',
   },
   '/school-list': {
-    title: 'Danh sách trường',
+    title: 'Danh sách thí nghiệm',
   },
   '/school-list/school-info': {
     title: 'Chi tiết trường',

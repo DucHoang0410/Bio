@@ -2,13 +2,10 @@ import { TableProps } from 'antd';
 import { Link } from 'react-router-dom';
 
 export interface SchoolDataType {
-  schoolId: number;
+  _id: string;
   name: string;
-  schoolType: number;
-  tinhthanh: string;
-  quanhuyen: string;
-  xaphuong: string;
-  msthue: string;
+  created_time: string;
+  
 }
 
 export interface SchoolListDataType {
@@ -30,35 +27,9 @@ export const columns: TableProps<SchoolDataType>['columns'] = [
     key: 'name',
   },
   {
-    title: 'Loại',
-    dataIndex: 'schoolType',
-    key: 'schoolType',
-    width: '100px',
-    render: (type) => 'Cấp ' + type,
-  },
-  {
-    title: 'Tỉnh thành',
-    dataIndex: 'tinhthanh',
-    key: 'tinhthanh',
-    width: '150px',
-  },
-  {
-    title: 'Quận huyện',
-    dataIndex: 'quanhuyen',
-    key: 'quanhuyen',
-    width: '180px',
-  },
-  {
-    title: 'Xã phường',
-    dataIndex: 'xaphuong',
-    key: 'xaphuong',
-    width: '180px',
-  },
-  {
-    title: 'MST',
-    dataIndex: 'msthue',
-    key: 'msthue',
-    width: '120px',
+    title: 'Ngày tạo',
+    dataIndex: 'created_time',
+    key: 'created_time',
   },
   {
     title: 'Hành động',
