@@ -12,20 +12,20 @@ export const ADMIN_ROUTER = [
     element: <Home />,
   },
   {
-    key: 'add-school',
-    path: '/add-school',
+    key: 'add-test',
+    path: '/add-test',
     navKey: 'as',
     element: <CreateSchool />,
   },
   {
-    key: 'school-list',
-    path: '/school-list',
+    key: 'test-list',
+    path: '/test-list',
     navKey: 'sl',
     element: <SchoolList />,
   },
   {
     key: 'school-info',
-    path: '/school-list/school-info/:testId',
+    path: '/test-list/test-info/:testId',
     navKey: 'sl',
     element: <SchoolInfo />,
   },
@@ -40,13 +40,13 @@ export const PATH_INFO = {
     title: 'Chi tiết tài khoản',
     // tabList: ['Thông tin chung', 'Danh sách tổ chức'],
   },
-  '/add-school': {
+  '/add-test': {
     title: 'Thêm thí nghiệm',
   },
-  '/school-list': {
+  '/test-list': {
     title: 'Danh sách thí nghiệm',
   },
-  '/school-list/school-info': {
+  '/test-list/test-info': {
     title: 'Chi tiết thí nghiệm',
     tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
   },

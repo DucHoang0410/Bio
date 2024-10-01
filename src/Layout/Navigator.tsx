@@ -22,12 +22,12 @@ const categories = [
       {
         id: 'Danh sách thí nghiệm',
         icon: <DomainOutlinedIcon />,
-        path: 'school-list',
+        path: 'test-list',
       },
       {
         id: 'Thêm thí nghiệm',
         icon: <AddCircleOutlineOutlinedIcon />,
-        path: 'add-school',
+        path: 'add-test',
       },
     ],
   }

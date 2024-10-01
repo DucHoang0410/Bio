@@ -32,7 +32,7 @@ export const Home = () => {
   return (
     <Grid container spacing={5}>
       <Grid item>
-        <Link style={{ textDecoration: 'none' }} to='/school-list'>
+        <Link style={{ textDecoration: 'none' }} to='/test-list'>
           <Card sx={card_sx}>
             <p className={styles.card_title}>Thí nghiệm</p>
             <p className={styles.card_number}>

@@ -36,6 +36,6 @@ export const columns: TableProps<SchoolDataType>['columns'] = [
     dataIndex: '_id',
     key: 'action',
     width: '140px',
-    render: (_id) => <Link to={`/school-list/school-info/${_id}`}>Chi tiết</Link>,
+    render: (_id) => <Link to={`/test-list/test-info/${_id}`}>Chi tiết</Link>,
   },
 ];

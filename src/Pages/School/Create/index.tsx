@@ -36,7 +36,7 @@ export const CreateSchool = () => {
           });
 
         if (response.code === 200) {
-          navigate(`/school-list/school-info/${response.info?.schoolId}`);
+          navigate(`/test-list/test-info/${response.info?.schoolId}`);
         } else {
           toast.error(response.msg);
         }

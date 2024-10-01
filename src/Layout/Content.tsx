@@ -34,8 +34,8 @@ interface NavigationTreeProps {
 }
 
 const navList = {
-  as: { name: 'Thêm thí nghiệm', path: '/add-school' },
-  sl: { name: 'Danh sách thí nghiệm', path: '/school-list' },
+  as: { name: 'Thêm thí nghiệm', path: '/add-test' },
+  sl: { name: 'Danh sách thí nghiệm', path: '/test-list' },
 };
 
 
