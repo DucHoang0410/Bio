@@ -25,7 +25,7 @@ export const ADMIN_ROUTER = [
   },
   {
     key: 'school-info',
-    path: '/school-list/school-info/:schoolId',
+    path: '/school-list/school-info/:testId',
     navKey: 'sl',
     element: <SchoolInfo />,
   },
@@ -47,7 +47,7 @@ export const PATH_INFO = {
     title: 'Danh sách thí nghiệm',
   },
   '/school-list/school-info': {
-    title: 'Chi tiết trường',
-    tabList: ['Thông tin chung', 'Danh sách admin'],
+    title: 'Chi tiết thí nghiệm',
+    tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
   },
 };

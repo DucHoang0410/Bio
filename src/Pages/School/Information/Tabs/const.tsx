@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export interface SchoolDataType {
   _id: string;
   name: string;
-  created_time: string;
+  start_time: string;
   
 }
 
@@ -28,7 +28,7 @@ export const columns: TableProps<SchoolDataType>['columns'] = [
   },
   {
     title: 'Ngày tạo',
-    dataIndex: 'created_time',
+    dataIndex: 'start_time',
     key: 'created_time',
   },
   {
@@ -36,6 +36,6 @@ export const columns: TableProps<SchoolDataType>['columns'] = [
     dataIndex: '_id',
     key: 'action',
     width: '140px',
-    render: (testId) => <Link to={`/school-list/school-info/${testId}`}>Chi tiết</Link>,
+    render: (_id) => <Link to={`/school-list/school-info/${_id}`}>Chi tiết</Link>,
   },
 ];

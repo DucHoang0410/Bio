@@ -1,83 +1,40 @@
-import { Grid } from '@mui/material';
-import { Card, Form, Modal } from 'antd';
-import styles from '../../school.module.css';
-import {
-  SchoolSubmitFormDataType,
-  SchoolForm,
-} from '../../Components';
+import { ResponseDataType, getRequest } from 'api';
 import { useEffect, useState } from 'react';
-import { ResponseDataType, getRequest, patchRequest } from 'api';
-import { useParams } from 'react-router-dom';
+import { SchoolDataType, SchoolListDataType, columns } from './const';
 import { toast } from 'react-toastify';
-
-interface SchoolResDataType {
-  schoolId: number;
-  name: string;
-  created_time: string;
-
-}
+import { Table } from 'antd';
+import { useParams } from "react-router-dom"; // Sử dụng useParams để lấy testId từ URL
 
 export const SchoolGeneralInfo = () => {
-  const { schoolId } = useParams();
-  const [form] = Form.useForm();
-
+  const { testId } = useParams<{ testId: string }>(); // Lấy testId từ URL
+  const [schoolList, setSchoolList] = useState<SchoolDataType[]>([]);
+console.log(testId);
   useEffect(() => {
-    const getSchoolInfo = async () => {
-      const schoolRes: ResponseDataType<SchoolResDataType> = await getRequest(
-        `/cms/school/${schoolId}`
-      );
+    const getCustomerList = async () => {
+      try {
+        // Gọi API với testId từ URL
+        const response: ResponseDataType<SchoolListDataType> = await getRequest(`/test-moment/${testId}`);
+        console.log(response);
 
-      if (schoolRes.code !== 200) {
-        toast.error(schoolRes.msg);
-        return;
+        if (response.code === 200) {
+          console.log(response.info);
+          setSchoolList(Array.isArray(response.info) ? response.info : []); 
+        } else {
+          toast.error(response.msg);
+        }
+      } catch (error) {
+        toast.error("Failed to fetch data");
       }
-
-      form.setFieldsValue({
-        name: schoolRes.info?.name,
-        created_time: schoolRes.info?.created_time, 
-      });
-  
     };
 
-    getSchoolInfo();
-  }, [form, schoolId]);
-
-  const handleCreateSchool = (value: SchoolSubmitFormDataType) => {
-    Modal.confirm({
-      style: { fontFamily: 'Quicksand' },
-      title: 'Xác nhận cập nhật thông tin trường?',
-      async onOk() {
-        const response: ResponseDataType<{}> = await patchRequest(
-          '/cms/school',
-          {
-            schoolId: parseInt(schoolId as string),
-            name: value.name,
-            created_time: value.created_time
-          }
-        );
-
-        if (response.code !== 200) {
-          toast.error(response.msg);
-        } else toast.success('Cập nhật thông tin trường thành công');
-      },
-    });
-  };
+    if (testId) {
+      getCustomerList(); // Gọi API nếu testId có giá trị
+    }
+  }, [testId]);
 
   return (
-    <Grid container spacing={5} marginTop={-2}>
-      <Grid item>
-        <Card
-          title='Chi tiết trường'
-          className={styles.list_card}
-          style={{ width: 500 }}
-        >
-          <SchoolForm
-            submitBtnLabel='Cập nhật'
-            form={form}
-            handleSubmitForm={handleCreateSchool}
-          />
-        </Card>
-      </Grid>
-    </Grid>
+    <div>
+      <Table columns={columns} dataSource={schoolList} rowKey='_id' />
+    </div>
   );
 };

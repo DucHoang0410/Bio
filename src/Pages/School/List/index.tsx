@@ -13,7 +13,7 @@ export const SchoolList = () => {
       console.log(response);
 
       if (response.code === 200) {
-        // Ensure response.info is always an array
+       console.log(response.info);
         setSchoolList(Array.isArray(response.info) ? response.info : []); 
       } else {
         toast.error(response.msg);
