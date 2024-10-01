@@ -1,6 +1,6 @@
 import { TableProps } from 'antd';
 import { Link } from 'react-router-dom';
-
+import { format } from 'date-fns';
 export interface SchoolDataType {
   _id: string;
   name: string;
@@ -29,7 +29,11 @@ export const columns: TableProps<SchoolDataType>['columns'] = [
   {
     title: 'Ngày tạo',
     dataIndex: 'start_time',
-    key: 'created_time',
+    key: 'start_time',
+    render: (start_time: string) => {
+      // Sử dụng date-fns để định dạng thời gian
+      return format(new Date(start_time), 'HH:mm - dd/MM/yyyy');
+    },
   },
   {
     title: 'Hành động',

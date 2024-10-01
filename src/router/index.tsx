@@ -3,6 +3,7 @@ import {
   Home,
   SchoolInfo,
   SchoolList,
+  
 } from 'Pages';
 
 export const ADMIN_ROUTER = [
