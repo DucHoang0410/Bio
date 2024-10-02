@@ -1,1 +1,2 @@
-export * from './Moment';
+// src/Pages/Moment/index.ts
+export { CreateMoment } from './Create';
