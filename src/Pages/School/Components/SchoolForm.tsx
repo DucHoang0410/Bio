@@ -36,7 +36,7 @@ export const SchoolForm = (props: SchoolFormPropsType) => {
         <Form.Item
           name="name"
           rules={[{ required: true, message: 'Cần nhập tên thí nghiệm!' }]}
-          style={{ width: '100%' }}
+          style={{ width: '70%' }}
         >
           <Input placeholder="Nhập tên thí nghiệm" />
         </Form.Item>
@@ -56,7 +56,7 @@ export const SchoolForm = (props: SchoolFormPropsType) => {
               message: 'Cần chọn thời gian thí nghiệm!',
             },
           ]}
-          style={{ width: '100%' }}
+          style={{ width: '70%' }}
         >
           <DatePicker
             showTime

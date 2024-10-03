@@ -46,7 +46,7 @@ export const SchoolForm = (props: SchoolFormPropsType) => {
         <Form.Item
           name="name"
           rules={[{ required: true, message: 'Cần nhập tên lần đo!' }]}
-          style={{ width: '100%' }}
+          style={{ width: '70%' }}
         >
           <Input placeholder="Nhập tên lần đo" />
         </Form.Item>
@@ -61,7 +61,7 @@ export const SchoolForm = (props: SchoolFormPropsType) => {
         <Form.Item
           name="created_time"
           rules={[{ required: true, message: 'Cần chọn thời gian đo!' }]}
-          style={{ width: '100%' }}
+          style={{ width: '70%' }}
         >
           <DatePicker
             showTime

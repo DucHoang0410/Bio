@@ -59,5 +59,6 @@ export const PATH_INFO = {
   },
   '/test-moment/add': {
     title: 'Thêm lần đo',
+    tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
   },
 };
