@@ -65,7 +65,7 @@ export const PATH_INFO = {
   },
   '/test-moment/add': {
     title: 'Thêm lần đo',
-    tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
+    // tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
   },
   '/photo/:momentId': {
     title: 'Danh sách ảnh thí nghiệm',
