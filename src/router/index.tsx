@@ -3,6 +3,7 @@ import {
   Home,
   SchoolInfo,
   SchoolList,
+  PhotoList
 } from 'Pages';
 import { CreateMoment } from 'Pages/Moment/Create'; 
 import path from 'path';
@@ -35,7 +36,12 @@ export const ADMIN_ROUTER = [
     key: 'moment',
     path: '/test-moment/add/:testId',
     element: <CreateMoment />
-  }
+  },
+  {
+    key: 'photo',
+    path: '/photo/:momentId',
+    element: <PhotoList />,
+  },
 ];
 
 export const PATH_INFO = {
@@ -60,5 +66,8 @@ export const PATH_INFO = {
   '/test-moment/add': {
     title: 'Thêm lần đo',
     tabList: ['Danh sách lần đo', 'Thông tin thí nghiệm'],
+  },
+  '/photo/:momentId': {
+    title: 'Danh sách ảnh thí nghiệm',
   },
 };

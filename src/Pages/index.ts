@@ -4,3 +4,4 @@ export * from './Home';
 export * from './School';
 export * from './Moment';
 export { CreateMoment } from './Moment/Create';
+export * from './Photo';
