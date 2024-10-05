@@ -1,22 +1,22 @@
 import { ResponseDataType, getRequest, postRequest } from 'api'; // Import postRequest
 import { useEffect, useState } from 'react';
-import { SchoolDataType, SchoolListDataType, columns } from './const';
+import { PhotoDataType, PhotoListDataType, columns } from './const';
 import { toast } from 'react-toastify';
 import { Table } from 'antd';
 import { useParams } from 'react-router-dom';
 
 export const PhotoList = () => {
-  const [schoolList, setSchoolList] = useState<SchoolDataType[]>([]);
+  const [photoList, setPhotoList] = useState<PhotoDataType[]>([]);
   const { momentId } = useParams<{ momentId: string }>();
 
   // Fetch the list of photos associated with the momentId
-  const getCustomerList = async () => {
+  const getPhotoList = async () => {
     if (momentId) {
       try {
-        const response: ResponseDataType<SchoolListDataType> = await getRequest(`/photo/${momentId}`);
+        const response: ResponseDataType<PhotoListDataType> = await getRequest(`/photo/${momentId}`);
         
         if (response.code === 200) {
-          setSchoolList(Array.isArray(response.info) ? response.info : []); 
+          setPhotoList(Array.isArray(response.info) ? response.info : []); 
         } else {
           toast.error(response.msg);
         }
@@ -28,7 +28,7 @@ export const PhotoList = () => {
   };
 
   useEffect(() => {
-    getCustomerList(); // Call getCustomerList on component mount
+    getPhotoList(); // Call getPhotoList on component mount
   }, [momentId]);
 
   // Function to handle file upload using postRequest
@@ -49,9 +49,9 @@ export const PhotoList = () => {
         if (response.code === 200) {
           toast.success('Photos uploaded successfully!');
           // Optionally update the state with newly uploaded photos
-          setSchoolList(prev => [...prev, ...response.data]); // Assuming response.data contains the new photos
+          setPhotoList(prev => [...prev, ...response.data]); // Assuming response.data contains the new photos
           event.target.value = ''; // Clear input after upload
-          getCustomerList(); // Refresh the photo list
+          getPhotoList(); // Refresh the photo list
         } else {
           toast.error(response.msg);
         }
@@ -73,7 +73,7 @@ export const PhotoList = () => {
         onChange={handleUpload}
         style={{ marginBottom: '20px' }}
       />
-      <Table columns={columns} dataSource={schoolList} rowKey='_id' />
+      <Table columns={columns} dataSource={photoList} rowKey='_id' />
     </div>
   );
 };

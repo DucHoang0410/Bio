@@ -2,18 +2,18 @@ import { TableProps } from 'antd';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns'; // Import hàm format từ date-fns
 
-export interface SchoolDataType {
+export interface PhotoDataType {
   _id: string;
   name: string;
   created_time: string;
 }
 
-export interface SchoolListDataType {
-  list: SchoolDataType[];
+export interface PhotoListDataType {
+  list: PhotoDataType[];
   total: number;
 }
 
-export const columns: TableProps<SchoolDataType>['columns'] = [
+export const columns: TableProps<PhotoDataType>['columns'] = [
   {
     title: 'STT',
     dataIndex: 'stt',
